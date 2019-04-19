@@ -13,8 +13,13 @@
 */
 
 window.addEventListener("load", function() {
-    var allSelect = document.getElementById("govLink");
+    // created variable to get the link "govLink" by id 
+    var allSelect = document.forms.govLinks;
+    // created for loop, inside for loop there's an anomonyous function to use the href property of the location object to change
+    // the page shwon in the browser window to the value of the target f the event object that initiated onchange 
     for (var i = 0; i < allSelect.length; i++) {
-        allSelect.onchange() 
+        allSelect[i].onchange = function(e) {
+            window.location.href = e.target.value;
+        }
     }
 });
